@@ -1,0 +1,17 @@
+.task_box{
+display: flex;
+align-items: center;
+justify-content: space-between;
+background-color: #F2F2F2;
+padding: 10px;
+border-left: 4px solid green;
+/* border-radius: 5px; */
+}
+.task_box p{
+    font-weight: 600;
+    font-size: 14px;
+}
+.deleteTask{
+    color: red;
+    cursor: pointer;
+}

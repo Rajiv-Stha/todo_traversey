@@ -1,0 +1,31 @@
+.form{
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.task_wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.task_wrapper input{
+    outline: none;
+    padding: 5px;
+    font-size: 12px;
+}
+.saveTask_btn{
+    width: fit-content;
+    padding: 8px 12px;
+    border: none;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #010100;
+    color: #fff;
+}
+.reminder_box{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
