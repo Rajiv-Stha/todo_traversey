@@ -1,19 +1,18 @@
 import React, { useState } from 'react'
 import styles from "./addtask.module.css"
-const AddTask = () => {
-  const [task, setTask] = useState("")
-  const [isChecked, setIsChecked] = useState(false)
-  const handleCheckboxChange = ()=>{
-    setIsChecked(!isChecked)
+const AddTask = ({handleSubmit, task, setTask, isChecked, setIsChecked}) => {
+
+  const handleCheckboxChange = (e)=>{
+    // setIsChecked(!isChecked)
+    setIsChecked(e.target.checked)
   }
 
   const handleTaskInputChange = (e)=>{
     setTask(e.target.value)
   }
-  const handleSubmit = (e)=>{
-    e.preventDefault()
-    alert("Submit")
-  }
+
+  
+  
   return (
     <>
 

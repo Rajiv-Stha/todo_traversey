@@ -6,6 +6,15 @@ import AddTask from '../addTask/AddTask'
 const Card = () => {
   const [state, setState] = useState(false)
   const [clickBtn, setClickBtn] = useState("Add")
+  const [allTask, setAllTask] = useState([])
+  const [task, setTask] = useState("")
+  const [isChecked, setIsChecked] = useState(false)
+
+  const handleDelete = (id)=>{
+    const filtered = allTask.filter(item=>item.id!== id)
+    setAllTask(filtered)
+  }
+
  
   const handleAdd = ()=>{
     setState(true)
@@ -17,6 +26,20 @@ const Card = () => {
     setState(false)
     setClickBtn("Add")
   }
+
+  const handleSubmit = (e)=>{
+    let newTask = {
+      task,
+      id:new Date(),
+      isChecked
+    }
+    e.preventDefault()
+    setAllTask((prev)=>{
+      return [...prev, newTask]
+    })
+    setTask("")
+  }
+  console.log(allTask)
   return (
     <div className={styles.card_container}>
 
@@ -29,11 +52,13 @@ const Card = () => {
       
       {
         
-        state? <AddTask/>: null
+        state? <AddTask handleSubmit={handleSubmit} setTask={setTask} task={task} isChecked={isChecked} setIsChecked={setIsChecked} />: null
       }
-     
-      <Task/>
-      <Task/>
+     {
+      allTask.map((item)=>{
+        return <Task item={item} task={task} handleDelete={handleDelete} key={item.id}/>
+      })
+     }
       </div>
     </div>
   )
